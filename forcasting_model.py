@@ -11,12 +11,10 @@ class ForcastingModel:
 
     def __init__(self, input_shape, output_shape, learning_rate=0.001, loss=MeanSquaredError()):
         self.model = Sequential()
-        self.model.add(LSTM(64, input_shape=input_shape, return_sequences=True))
-        self.model.add(Dropout(0.2))
-        self.model.add(LSTM(64, return_sequences=True))
-        self.model.add(Dropout(0.2))
-        self.model.add(LSTM(64))
-        self.model.add(Dropout(0.2))
+        self.model.add(LSTM(input_shape[1], activation='tanh', input_shape=input_shape, return_sequences=True))
+        self.model.add(LSTM(input_shape[1], activation='tanh', input_shape=input_shape, return_sequences=False))
+        self.model.add(Dense(input_shape[1], activation='relu'))
+        self.model.add(Dense(1, activation='linear'))
         self.model.add(Dense(output_shape))
         self.model.compile(optimizer=Adam(learning_rate), loss=loss)
         self.model.summary()
