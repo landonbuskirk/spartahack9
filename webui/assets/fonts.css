@@ -1,0 +1,16 @@
+/* assets/fonts/myfont.css */
+@font-face {
+    font-family: 'LufgaRegular';
+    src: url('fonts/LufgaRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* You can define multiple font weights and styles if available */
+/*
+@font-face {
+    font-family: 'MyFont';
+    font-weight: bold;
+    src: url('fonts/MyFont-Bold.otf') format('opentype');
+}
+*/
